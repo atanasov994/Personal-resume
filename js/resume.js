@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".work-header");
+    const buttons = document.querySelectorAll(".work-header, .expandable-header"");
 
     buttons.forEach(function (button) {
         button.addEventListener("click", function () {
