@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    /*
+     * Work Experience
+     * Projects
+     * Master / Bachelor
+     *
+     * These individual items can expand and collapse.
+     */
+
     const expandableButtons = document.querySelectorAll(
         ".work-header, .expandable-header"
     );
@@ -21,6 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+
+    /*
+     * Main section controls
+     *
+     * Education and Certifications are controlled
+     * from their main section headers.
+     */
 
     const sectionButtons = document.querySelectorAll(
         ".section-header"
