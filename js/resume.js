@@ -1,22 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     /*
-     * Projects + Work Experience
+     * Work Experience
+     * Projects
+     * Master / Bachelor
+     *
+     * These individual items can expand and collapse.
      */
-    const accordionButtons = document.querySelectorAll(
-        ".accordion-button"
+
+    const expandableButtons = document.querySelectorAll(
+        ".work-header, .expandable-header"
     );
 
-    accordionButtons.forEach(function (button) {
+
+    expandableButtons.forEach(function (button) {
 
         button.addEventListener("click", function () {
 
-            const expanded =
+            const isExpanded =
                 button.getAttribute("aria-expanded") === "true";
 
             button.setAttribute(
                 "aria-expanded",
-                String(!expanded)
+                String(!isExpanded)
             );
 
         });
@@ -25,51 +31,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /*
-     * Education + Certifications
+     * Main section controls
      *
-     * These control ONLY the main sections.
+     * Education and Certifications are controlled
+     * from their main section headers.
      */
-    const mainSectionButtons = document.querySelectorAll(
-        ".main-section-button"
+
+    const sectionButtons = document.querySelectorAll(
+        ".section-header"
     );
 
-    mainSectionButtons.forEach(function (button) {
+
+    sectionButtons.forEach(function (button) {
 
         button.addEventListener("click", function () {
 
-            const expanded =
+            const isExpanded =
                 button.getAttribute("aria-expanded") === "true";
 
             button.setAttribute(
                 "aria-expanded",
-                String(!expanded)
-            );
-
-        });
-
-    });
-
-
-    /*
-     * Master + Bachelor
-     *
-     * These are the only expandable items
-     * inside Education.
-     */
-    const educationButtons = document.querySelectorAll(
-        ".education-button"
-    );
-
-    educationButtons.forEach(function (button) {
-
-        button.addEventListener("click", function () {
-
-            const expanded =
-                button.getAttribute("aria-expanded") === "true";
-
-            button.setAttribute(
-                "aria-expanded",
-                String(!expanded)
+                String(!isExpanded)
             );
 
         });
