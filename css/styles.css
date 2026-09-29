@@ -1,3 +1,7 @@
+/* ==============================
+   Global
+   ============================== */
+
 * {
     box-sizing: border-box;
 }
@@ -24,9 +28,9 @@ button {
 }
 
 
-/* =========================
-   HEADER
-   ========================= */
+/* ==============================
+   Resume Header
+   ============================== */
 
 .resume-header {
     padding: 80px 0 45px;
@@ -49,9 +53,9 @@ button {
 }
 
 
-/* =========================
-   SECTIONS
-   ========================= */
+/* ==============================
+   Sections
+   ============================== */
 
 .resume-section {
     margin-bottom: 55px;
@@ -61,16 +65,17 @@ button {
     margin: 0 0 22px;
     font-size: 1.45rem;
     color: #111827;
+    font-weight: 700;
 }
-
-
-/* =========================
-   PROFILE
-   ========================= */
 
 .resume-section p {
     color: #475569;
 }
+
+
+/* ==============================
+   Profile
+   ============================== */
 
 .back-link {
     display: inline-block;
@@ -85,333 +90,318 @@ button {
 }
 
 
-/* =========================
-   PROJECTS + WORK EXPERIENCE
-   ========================= */
+/* ==============================
+   General Section Accordion
+   Education / Certifications
+   ============================== */
 
-.accordion-item {
+.section-expandable {
+    border-top: 1px solid #dbe2e8;
+    border-bottom: 1px solid #dbe2e8;
+}
+
+.section-header {
+    width: 100%;
+    padding: 22px 0;
+    border: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.section-header h2 {
+    margin: 0;
+    font-size: 1.45rem;
+    color: #111827;
+    font-weight: 700;
+}
+
+.section-header:hover h2 {
+    color: #2563eb;
+}
+
+.section-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #cbd5e1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-size: 1.2rem;
+    line-height: 1;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.section-header[aria-expanded="true"] .section-icon {
+    transform: rotate(45deg);
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+.section-details {
+    display: none;
+    padding: 0 0 25px;
+}
+
+.section-header[aria-expanded="true"] + .section-details {
+    display: block;
+}
+
+
+/* ==============================
+   Education
+   ============================== */
+
+.education-item {
+    margin-top: 12px;
+}
+
+.education-item:first-child {
+    margin-top: 0;
+}
+
+
+/* ==============================
+   Projects / Education Inner Items
+   ============================== */
+
+.expandable-item {
+    border: 1px solid #dbe2e8;
+    border-radius: 12px;
+    background: #ffffff;
+    overflow: hidden;
+    transition:
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.expandable-item:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+}
+
+.project-item {
+    margin-bottom: 14px;
+}
+
+.project-item:last-child {
+    margin-bottom: 0;
+}
+
+.expandable-header {
+    width: 100%;
+    padding: 20px 22px;
+    border: 0;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.expandable-header:hover {
+    background: #f8fafc;
+}
+
+.expandable-header strong {
+    display: block;
+    color: #111827;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.item-subtitle {
+    display: block;
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.expandable-icon {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #cbd5e1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-size: 1.1rem;
+    line-height: 1;
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.expandable-header[aria-expanded="true"] .expandable-icon {
+    transform: rotate(45deg);
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+.expandable-details {
+    display: none;
+    padding: 0 22px 22px;
+}
+
+.expandable-header[aria-expanded="true"] + .expandable-details {
+    display: block;
+}
+
+.expandable-details p {
+    margin: 0;
+    color: #475569;
+}
+
+
+/* ==============================
+   Work Experience
+   ============================== */
+
+.work-item {
     margin-bottom: 14px;
     border: 1px solid #dbe2e8;
     border-radius: 12px;
     background: #ffffff;
     overflow: hidden;
-
     transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
 }
 
-.accordion-item:last-child {
-    margin-bottom: 0;
-}
-
-.accordion-item:hover {
+.work-item:hover {
     border-color: #cbd5e1;
     box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
 }
 
-.accordion-button {
+.work-item:last-child {
+    margin-bottom: 0;
+}
+
+.work-header {
     width: 100%;
     padding: 20px 22px;
-
     border: 0;
     background: #ffffff;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     gap: 20px;
-
     cursor: pointer;
     text-align: left;
 }
 
-.accordion-button:hover {
+.work-header:hover {
     background: #f8fafc;
 }
 
-.accordion-button strong {
+.work-header strong {
     display: block;
     color: #111827;
     font-size: 1rem;
     font-weight: 600;
 }
 
-.accordion-button span:not(.accordion-plus) {
+.work-header .item-subtitle {
     display: block;
     margin-top: 4px;
     color: #64748b;
     font-size: 0.9rem;
 }
 
-.accordion-plus {
+.work-icon {
     flex-shrink: 0;
-
     width: 30px;
     height: 30px;
-
     border: 1px solid #cbd5e1;
     border-radius: 50%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     color: #475569;
     font-size: 1.1rem;
-
+    line-height: 1;
     transition:
         transform 0.25s ease,
         background 0.25s ease,
         color 0.25s ease;
 }
 
-.accordion-button[aria-expanded="true"] .accordion-plus {
+.work-header[aria-expanded="true"] .work-icon {
     transform: rotate(45deg);
     background: #2563eb;
     border-color: #2563eb;
     color: #ffffff;
 }
 
-.accordion-content {
+.work-details {
     display: none;
     padding: 0 22px 22px;
 }
 
-.accordion-button[aria-expanded="true"] + .accordion-content {
+.work-header[aria-expanded="true"] + .work-details {
     display: block;
 }
 
-.accordion-content p {
-    margin: 0;
-}
-
-.accordion-content ul {
+.work-details ul {
     margin: 0;
     padding-left: 20px;
+    color: #475569;
 }
 
-.accordion-content li {
+.work-details li {
     margin-bottom: 7px;
-    color: #475569;
 }
 
-.accordion-content li:last-child {
+.work-details li:last-child {
     margin-bottom: 0;
 }
 
 
-/* =========================
-   EDUCATION + CERTIFICATIONS
-   MAIN SECTION
-   ========================= */
+/* ==============================
+   Certifications
+   ============================== */
 
-.main-section {
-    border-top: 1px solid #dbe2e8;
-    border-bottom: 1px solid #dbe2e8;
+.certifications-list {
+    padding-top: 5px;
 }
 
-
-/*
-   This is the ONLY button for
-   the main Education/Certifications
-   sections.
-*/
-
-.main-section-button {
-    width: 100%;
-    padding: 22px 0;
-
-    border: 0;
-    background: transparent;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    cursor: pointer;
-    text-align: left;
-}
-
-.main-section-button h2 {
-    margin: 0;
-    color: #111827;
-    font-size: 1.45rem;
-    font-weight: 700;
-}
-
-.main-section-button:hover h2 {
-    color: #2563eb;
-}
-
-.main-section-plus {
-    flex-shrink: 0;
-
-    width: 32px;
-    height: 32px;
-
-    border: 1px solid #cbd5e1;
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #475569;
-    font-size: 1.2rem;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease;
-}
-
-.main-section-button[aria-expanded="true"] .main-section-plus {
-    transform: rotate(45deg);
-    background: #2563eb;
-    border-color: #2563eb;
-    color: #ffffff;
-}
-
-
-/* =========================
-   MAIN SECTION CONTENT
-   ========================= */
-
-.main-section-content {
-    display: none;
-    padding: 0 0 25px;
-}
-
-.main-section-button[aria-expanded="true"] + .main-section-content {
-    display: block;
-}
-
-
-/* =========================
-   EDUCATION ITEMS
-   ========================= */
-
-.education-item {
-    margin-bottom: 12px;
-
-    border: 1px solid #dbe2e8;
-    border-radius: 12px;
-
-    background: #ffffff;
-
-    overflow: hidden;
-}
-
-.education-item:last-child {
-    margin-bottom: 0;
-}
-
-.education-button {
-    width: 100%;
-    padding: 20px 22px;
-
-    border: 0;
-    background: #ffffff;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 20px;
-
-    cursor: pointer;
-    text-align: left;
-}
-
-.education-button:hover {
-    background: #f8fafc;
-}
-
-.education-button strong {
-    display: block;
-    color: #111827;
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.education-button div > span {
-    display: block;
-    margin-top: 4px;
-    color: #64748b;
-    font-size: 0.9rem;
-}
-
-.education-plus {
-    flex-shrink: 0;
-
-    width: 30px;
-    height: 30px;
-
-    border: 1px solid #cbd5e1;
-    border-radius: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #475569;
-    font-size: 1.1rem;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease;
-}
-
-.education-button[aria-expanded="true"] .education-plus {
-    transform: rotate(45deg);
-    background: #2563eb;
-    border-color: #2563eb;
-    color: #ffffff;
-}
-
-.education-content {
-    display: none;
-    padding: 0 22px 22px;
-}
-
-.education-button[aria-expanded="true"] + .education-content {
-    display: block;
-}
-
-.education-content p {
-    margin: 0;
-    color: #475569;
-}
-
-
-/* =========================
-   CERTIFICATIONS
-   IMPORTANT:
-   NO CERTIFICATION BUTTONS
-   ========================= */
-
-.certifications-content ul {
+.certifications-list ul {
     margin: 0;
     padding-left: 22px;
-}
-
-.certifications-content li {
-    margin-bottom: 10px;
-    padding-left: 4px;
     color: #475569;
 }
 
-.certifications-content li:last-child {
+.certifications-list li {
+    margin-bottom: 10px;
+    padding-left: 4px;
+}
+
+.certifications-list li:last-child {
     margin-bottom: 0;
 }
 
 
-/* =========================
-   FOOTER
-   ========================= */
+/* ==============================
+   Footer
+   ============================== */
 
 .resume-footer {
     padding: 20px 0 60px;
@@ -426,6 +416,7 @@ button {
 .resume-footer a {
     color: #2563eb;
     text-decoration: none;
+    font-weight: 500;
 }
 
 .resume-footer a:hover {
@@ -433,9 +424,9 @@ button {
 }
 
 
-/* =========================
-   MOBILE
-   ========================= */
+/* ==============================
+   Mobile
+   ============================== */
 
 @media (max-width: 600px) {
 
@@ -455,29 +446,33 @@ button {
         margin-bottom: 40px;
     }
 
-    .accordion-button,
-    .education-button {
-        padding: 17px;
-    }
-
-    .accordion-content,
-    .education-content {
-        padding: 0 17px 18px;
-    }
-
-    .main-section-button {
+    .section-header {
         padding: 18px 0;
     }
 
-    .main-section-plus,
-    .accordion-plus,
-    .education-plus {
+    .expandable-header,
+    .work-header {
+        padding: 17px;
+    }
+
+    .expandable-details,
+    .work-details {
+        padding: 0 17px 18px;
+    }
+
+    .section-icon,
+    .expandable-icon,
+    .work-icon {
         width: 28px;
         height: 28px;
     }
 
-    .accordion-button span:not(.accordion-plus),
-    .education-button div > span {
+    .item-subtitle {
         font-size: 0.85rem;
     }
+
+    .certifications-list ul {
+        padding-left: 20px;
+    }
+
 }
