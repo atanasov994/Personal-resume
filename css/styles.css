@@ -1,7 +1,3 @@
-/* ==============================
-   Global
-   ============================== */
-
 * {
     box-sizing: border-box;
 }
@@ -28,9 +24,9 @@ button {
 }
 
 
-/* ==============================
-   Resume Header
-   ============================== */
+/* =========================
+   HEADER
+   ========================= */
 
 .resume-header {
     padding: 80px 0 45px;
@@ -53,9 +49,9 @@ button {
 }
 
 
-/* ==============================
-   Sections
-   ============================== */
+/* =========================
+   SECTIONS
+   ========================= */
 
 .resume-section {
     margin-bottom: 55px;
@@ -65,17 +61,16 @@ button {
     margin: 0 0 22px;
     font-size: 1.45rem;
     color: #111827;
-    font-weight: 700;
 }
+
+
+/* =========================
+   PROFILE
+   ========================= */
 
 .resume-section p {
     color: #475569;
 }
-
-
-/* ==============================
-   Profile
-   ============================== */
 
 .back-link {
     display: inline-block;
@@ -90,318 +85,333 @@ button {
 }
 
 
-/* ==============================
-   General Section Accordion
-   Education / Certifications
-   ============================== */
+/* =========================
+   PROJECTS + WORK EXPERIENCE
+   ========================= */
 
-.section-expandable {
+.accordion-item {
+    margin-bottom: 14px;
+    border: 1px solid #dbe2e8;
+    border-radius: 12px;
+    background: #ffffff;
+    overflow: hidden;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.accordion-item:last-child {
+    margin-bottom: 0;
+}
+
+.accordion-item:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+}
+
+.accordion-button {
+    width: 100%;
+    padding: 20px 22px;
+
+    border: 0;
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    cursor: pointer;
+    text-align: left;
+}
+
+.accordion-button:hover {
+    background: #f8fafc;
+}
+
+.accordion-button strong {
+    display: block;
+    color: #111827;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.accordion-button span:not(.accordion-plus) {
+    display: block;
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.accordion-plus {
+    flex-shrink: 0;
+
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #475569;
+    font-size: 1.1rem;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.accordion-button[aria-expanded="true"] .accordion-plus {
+    transform: rotate(45deg);
+    background: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+.accordion-content {
+    display: none;
+    padding: 0 22px 22px;
+}
+
+.accordion-button[aria-expanded="true"] + .accordion-content {
+    display: block;
+}
+
+.accordion-content p {
+    margin: 0;
+}
+
+.accordion-content ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.accordion-content li {
+    margin-bottom: 7px;
+    color: #475569;
+}
+
+.accordion-content li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   EDUCATION + CERTIFICATIONS
+   MAIN SECTION
+   ========================= */
+
+.main-section {
     border-top: 1px solid #dbe2e8;
     border-bottom: 1px solid #dbe2e8;
 }
 
-.section-header {
+
+/*
+   This is the ONLY button for
+   the main Education/Certifications
+   sections.
+*/
+
+.main-section-button {
     width: 100%;
     padding: 22px 0;
+
     border: 0;
     background: transparent;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+
     cursor: pointer;
     text-align: left;
 }
 
-.section-header h2 {
+.main-section-button h2 {
     margin: 0;
-    font-size: 1.45rem;
     color: #111827;
+    font-size: 1.45rem;
     font-weight: 700;
 }
 
-.section-header:hover h2 {
+.main-section-button:hover h2 {
     color: #2563eb;
 }
 
-.section-icon {
+.main-section-plus {
     flex-shrink: 0;
+
     width: 32px;
     height: 32px;
+
     border: 1px solid #cbd5e1;
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     color: #475569;
     font-size: 1.2rem;
-    line-height: 1;
+
     transition:
         transform 0.25s ease,
         background 0.25s ease,
         color 0.25s ease;
 }
 
-.section-header[aria-expanded="true"] .section-icon {
+.main-section-button[aria-expanded="true"] .main-section-plus {
     transform: rotate(45deg);
     background: #2563eb;
     border-color: #2563eb;
     color: #ffffff;
 }
 
-.section-details {
+
+/* =========================
+   MAIN SECTION CONTENT
+   ========================= */
+
+.main-section-content {
     display: none;
     padding: 0 0 25px;
 }
 
-.section-header[aria-expanded="true"] + .section-details {
+.main-section-button[aria-expanded="true"] + .main-section-content {
     display: block;
 }
 
 
-/* ==============================
-   Education
-   ============================== */
+/* =========================
+   EDUCATION ITEMS
+   ========================= */
 
 .education-item {
-    margin-top: 12px;
-}
+    margin-bottom: 12px;
 
-.education-item:first-child {
-    margin-top: 0;
-}
-
-
-/* ==============================
-   Projects / Education Inner Items
-   ============================== */
-
-.expandable-item {
     border: 1px solid #dbe2e8;
     border-radius: 12px;
+
     background: #ffffff;
+
     overflow: hidden;
-    transition:
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
 }
 
-.expandable-item:hover {
-    border-color: #cbd5e1;
-    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
-}
-
-.project-item {
-    margin-bottom: 14px;
-}
-
-.project-item:last-child {
+.education-item:last-child {
     margin-bottom: 0;
 }
 
-.expandable-header {
+.education-button {
     width: 100%;
     padding: 20px 22px;
+
     border: 0;
     background: #ffffff;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 20px;
+
     cursor: pointer;
     text-align: left;
 }
 
-.expandable-header:hover {
+.education-button:hover {
     background: #f8fafc;
 }
 
-.expandable-header strong {
+.education-button strong {
     display: block;
     color: #111827;
     font-size: 1rem;
     font-weight: 600;
 }
 
-.item-subtitle {
-    display: block;
-    margin-top: 4px;
-    color: #64748b;
-    font-size: 0.9rem;
-    font-weight: 400;
-}
-
-.expandable-icon {
-    flex-shrink: 0;
-    width: 30px;
-    height: 30px;
-    border: 1px solid #cbd5e1;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #475569;
-    font-size: 1.1rem;
-    line-height: 1;
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease;
-}
-
-.expandable-header[aria-expanded="true"] .expandable-icon {
-    transform: rotate(45deg);
-    background: #2563eb;
-    border-color: #2563eb;
-    color: #ffffff;
-}
-
-.expandable-details {
-    display: none;
-    padding: 0 22px 22px;
-}
-
-.expandable-header[aria-expanded="true"] + .expandable-details {
-    display: block;
-}
-
-.expandable-details p {
-    margin: 0;
-    color: #475569;
-}
-
-
-/* ==============================
-   Work Experience
-   ============================== */
-
-.work-item {
-    margin-bottom: 14px;
-    border: 1px solid #dbe2e8;
-    border-radius: 12px;
-    background: #ffffff;
-    overflow: hidden;
-    transition:
-        box-shadow 0.25s ease,
-        border-color 0.25s ease;
-}
-
-.work-item:hover {
-    border-color: #cbd5e1;
-    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
-}
-
-.work-item:last-child {
-    margin-bottom: 0;
-}
-
-.work-header {
-    width: 100%;
-    padding: 20px 22px;
-    border: 0;
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    cursor: pointer;
-    text-align: left;
-}
-
-.work-header:hover {
-    background: #f8fafc;
-}
-
-.work-header strong {
-    display: block;
-    color: #111827;
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.work-header .item-subtitle {
+.education-button div > span {
     display: block;
     margin-top: 4px;
     color: #64748b;
     font-size: 0.9rem;
 }
 
-.work-icon {
+.education-plus {
     flex-shrink: 0;
+
     width: 30px;
     height: 30px;
+
     border: 1px solid #cbd5e1;
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     color: #475569;
     font-size: 1.1rem;
-    line-height: 1;
+
     transition:
         transform 0.25s ease,
         background 0.25s ease,
         color 0.25s ease;
 }
 
-.work-header[aria-expanded="true"] .work-icon {
+.education-button[aria-expanded="true"] .education-plus {
     transform: rotate(45deg);
     background: #2563eb;
     border-color: #2563eb;
     color: #ffffff;
 }
 
-.work-details {
+.education-content {
     display: none;
     padding: 0 22px 22px;
 }
 
-.work-header[aria-expanded="true"] + .work-details {
+.education-button[aria-expanded="true"] + .education-content {
     display: block;
 }
 
-.work-details ul {
+.education-content p {
     margin: 0;
-    padding-left: 20px;
     color: #475569;
 }
 
-.work-details li {
-    margin-bottom: 7px;
-}
 
-.work-details li:last-child {
-    margin-bottom: 0;
-}
+/* =========================
+   CERTIFICATIONS
+   IMPORTANT:
+   NO CERTIFICATION BUTTONS
+   ========================= */
 
-
-/* ==============================
-   Certifications
-   ============================== */
-
-.certifications-list {
-    padding-top: 5px;
-}
-
-.certifications-list ul {
+.certifications-content ul {
     margin: 0;
     padding-left: 22px;
+}
+
+.certifications-content li {
+    margin-bottom: 10px;
+    padding-left: 4px;
     color: #475569;
 }
 
-.certifications-list li {
-    margin-bottom: 10px;
-    padding-left: 4px;
-}
-
-.certifications-list li:last-child {
+.certifications-content li:last-child {
     margin-bottom: 0;
 }
 
 
-/* ==============================
-   Footer
-   ============================== */
+/* =========================
+   FOOTER
+   ========================= */
 
 .resume-footer {
     padding: 20px 0 60px;
@@ -416,7 +426,6 @@ button {
 .resume-footer a {
     color: #2563eb;
     text-decoration: none;
-    font-weight: 500;
 }
 
 .resume-footer a:hover {
@@ -424,9 +433,9 @@ button {
 }
 
 
-/* ==============================
-   Mobile
-   ============================== */
+/* =========================
+   MOBILE
+   ========================= */
 
 @media (max-width: 600px) {
 
@@ -446,33 +455,29 @@ button {
         margin-bottom: 40px;
     }
 
-    .section-header {
-        padding: 18px 0;
-    }
-
-    .expandable-header,
-    .work-header {
+    .accordion-button,
+    .education-button {
         padding: 17px;
     }
 
-    .expandable-details,
-    .work-details {
+    .accordion-content,
+    .education-content {
         padding: 0 17px 18px;
     }
 
-    .section-icon,
-    .expandable-icon,
-    .work-icon {
+    .main-section-button {
+        padding: 18px 0;
+    }
+
+    .main-section-plus,
+    .accordion-plus,
+    .education-plus {
         width: 28px;
         height: 28px;
     }
 
-    .item-subtitle {
+    .accordion-button span:not(.accordion-plus),
+    .education-button div > span {
         font-size: 0.85rem;
     }
-
-    .certifications-list ul {
-        padding-left: 20px;
-    }
-
 }
