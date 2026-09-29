@@ -1,478 +1,666 @@
-/* ==============================
-   Global
-   ============================== */
+/*
+COLOR PALETTE
 
-* {
-    box-sizing: border-box;
-}
+Dark green    #3c8453
+Sandy beige   #bcaa96
+Dark gray     #222222
+Light gray    #d3d4d6
+Off-white     #f6f6f6
+*/
+
+
+/* =========================================
+   GLOBAL STYLES
+   ========================================= */
 
 html {
-    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
 }
 
 body {
+    background: #f6f6f6;
     margin: 0;
-    font-family: "Inter", sans-serif;
-    background: #f5f7f8;
-    color: #1f2933;
-    line-height: 1.7;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #222222;
 }
 
-button {
-    font-family: inherit;
-}
-
-.content {
-    width: min(100% - 40px, 900px);
-    margin: 0 auto;
-}
-
-
-/* ==============================
-   Resume Header
-   ============================== */
-
-.resume-header {
-    padding: 80px 0 45px;
-    text-align: center;
-}
-
-.resume-header h1 {
+h1,
+h2,
+h3 {
+    font-family: 'Inter', sans-serif;
     margin: 0;
-    font-size: clamp(2.2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    letter-spacing: -0.04em;
-    color: #111827;
 }
 
-.resume-header p {
-    margin: 12px 0 0;
-    color: #64748b;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-
-/* ==============================
-   Sections
-   ============================== */
-
-.resume-section {
-    margin-bottom: 55px;
-}
-
-.resume-section > h2 {
-    margin: 0 0 22px;
-    font-size: 1.45rem;
-    color: #111827;
+h1 {
+    font-size: 5.2rem;
+    line-height: 1.1;
     font-weight: 700;
 }
 
-.resume-section p {
-    color: #475569;
-}
-
-
-/* ==============================
-   Profile
-   ============================== */
-
-.back-link {
-    display: inline-block;
-    margin-top: 12px;
-    color: #2563eb;
-    text-decoration: none;
+h2 {
+    font-size: 2.8rem;
     font-weight: 600;
 }
 
-.back-link:hover {
-    text-decoration: underline;
+h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
 
-/* ==============================
-   General Section Accordion
-   Education / Certifications
-   ============================== */
+/* =========================================
+   LINKS
+   ========================================= */
 
-.section-expandable {
-    border-top: 1px solid #dbe2e8;
-    border-bottom: 1px solid #dbe2e8;
+a {
+    color: #3c8453;
 }
 
-.section-header {
-    width: 100%;
-    padding: 22px 0;
-    border: 0;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    cursor: pointer;
-    text-align: left;
+a:hover {
+    color: #bcaa96;
+    text-decoration: none;
 }
 
-.section-header h2 {
-    margin: 0;
-    font-size: 1.45rem;
-    color: #111827;
-    font-weight: 700;
+footer a {
+    color: #bcaa96;
 }
 
-.section-header:hover h2 {
-    color: #2563eb;
+footer a:hover {
+    color: #3c8453;
 }
 
-.section-icon {
-    flex-shrink: 0;
-    width: 32px;
-    height: 32px;
-    border: 1px solid #cbd5e1;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #475569;
+.btn {
+    background: #3c8453;
+    color: #f6f6f6;
+    text-decoration: none;
+    text-transform: uppercase;
     font-size: 1.2rem;
+    display: inline-block;
+    padding: 7px;
+    letter-spacing: 0.1em;
     line-height: 1;
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease,
-        color 0.25s ease;
+    border-radius: 4px;
 }
 
-.section-header[aria-expanded="true"] .section-icon {
-    transform: rotate(45deg);
-    background: #2563eb;
-    border-color: #2563eb;
-    color: #ffffff;
+
+/* =========================================
+   CONTENT WRAPPER
+   ========================================= */
+
+.content-wrapper {
+    margin: 0 auto;
+    padding: 30px;
+    max-width: 900px;
 }
 
-.section-details {
-    display: none;
-    padding: 0 0 25px;
+
+/* =========================================
+   HOME
+   ========================================= */
+
+.home {
+    background: url(../images/bg-home-office-city.jpg) no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
 }
 
-.section-header[aria-expanded="true"] + .section-details {
+.home .content-wrapper {
+    flex: 1 0 auto;
+}
+
+.content-bg {
+    background: rgb(255 255 255 / 0.9);
+    padding: 30px;
+}
+
+@media screen and (max-width: 650px) {
+
+    .home .content-wrapper {
+        padding: 10px;
+    }
+
+    .content-bg {
+        padding: 20px;
+    }
+}
+
+
+/* =========================================
+   RESUME
+   ========================================= */
+
+.resume header::before {
+    background: url(../images/bg-home-office-city.jpg) center;
+    background-size: cover;
+    content: "";
     display: block;
+    height: 375px;
+}
+
+.resume-section {
+    margin-bottom: 50px;
+}
+
+.resume-section h2 {
+    border-bottom: 2px dashed #d3d4d6;
+    margin-bottom: 25px;
+}
+
+.download-link {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    font-size: 1.5rem;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .download-link {
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .resume header::before {
+        height: 200px;
+    }
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    h2 {
+        font-size: 2.6rem;
+    }
 }
 
 
-/* ==============================
-   Education
-   ============================== */
-
-.education-item {
-    margin-top: 12px;
-}
-
-.education-item:first-child {
-    margin-top: 0;
-}
-
-
-/* ==============================
-   Projects / Education Inner Items
-   ============================== */
+/* =========================================
+   UNIVERSAL EXPANDABLE ITEMS
+   Used by:
+   - Projects
+   - Education
+   - Certifications
+   ========================================= */
 
 .expandable-item {
-    border: 1px solid #dbe2e8;
+    margin: 18px 0;
+    border: 1px solid #e1e4e8;
     border-radius: 12px;
     background: #ffffff;
     overflow: hidden;
     transition:
         box-shadow 0.25s ease,
-        border-color 0.25s ease;
+        transform 0.25s ease;
 }
 
 .expandable-item:hover {
-    border-color: #cbd5e1;
-    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.07);
 }
 
-.project-item {
-    margin-bottom: 14px;
-}
 
-.project-item:last-child {
-    margin-bottom: 0;
-}
+/* =========================================
+   EXPANDABLE HEADER
+   ========================================= */
 
 .expandable-header {
     width: 100%;
-    padding: 20px 22px;
-    border: 0;
-    background: #ffffff;
+    border: none;
+    background: transparent;
+
+    padding: 22px 26px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    cursor: pointer;
+
     text-align: left;
+    cursor: pointer;
+
+    font-family: inherit;
+    color: #222222;
+
+    transition: background 0.2s ease;
 }
 
 .expandable-header:hover {
-    background: #f8fafc;
+    background: #f8faf9;
 }
 
-.expandable-header strong {
-    display: block;
-    color: #111827;
-    font-size: 1rem;
+
+/* Header title */
+
+.expandable-header h3 {
+    margin: 0 0 5px;
+    font-size: 1.8rem;
+    line-height: 1.35;
     font-weight: 600;
 }
 
+
+/* Header subtitle */
+
 .item-subtitle {
-    display: block;
-    margin-top: 4px;
-    color: #64748b;
-    font-size: 0.9rem;
-    font-weight: 400;
+    margin: 0;
+    color: #3c8453;
+    font-size: 1.3rem;
+    line-height: 1.4;
 }
 
+
+/* =========================================
+   EXPAND / COLLAPSE ICON
+   ========================================= */
+
 .expandable-icon {
-    flex-shrink: 0;
-    width: 30px;
-    height: 30px;
-    border: 1px solid #cbd5e1;
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #475569;
-    font-size: 1.1rem;
+
+    flex-shrink: 0;
+
+    border: 1px solid #d3d4d6;
+    border-radius: 50%;
+
+    font-size: 2rem;
+    font-weight: 400;
     line-height: 1;
+
+    color: #3c8453;
+
     transition:
         transform 0.25s ease,
         background 0.25s ease,
-        color 0.25s ease;
-}
-
-.expandable-header[aria-expanded="true"] .expandable-icon {
-    transform: rotate(45deg);
-    background: #2563eb;
-    border-color: #2563eb;
-    color: #ffffff;
-}
-
-.expandable-details {
-    display: none;
-    padding: 0 22px 22px;
-}
-
-.expandable-header[aria-expanded="true"] + .expandable-details {
-    display: block;
-}
-
-.expandable-details p {
-    margin: 0;
-    color: #475569;
-}
-
-
-/* ==============================
-   Work Experience
-   ============================== */
-
-.work-item {
-    margin-bottom: 14px;
-    border: 1px solid #dbe2e8;
-    border-radius: 12px;
-    background: #ffffff;
-    overflow: hidden;
-    transition:
-        box-shadow 0.25s ease,
+        color 0.25s ease,
         border-color 0.25s ease;
 }
 
-.work-item:hover {
-    border-color: #cbd5e1;
-    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+
+/* Turn + into × when expanded */
+
+.expandable-header[aria-expanded="true"] .expandable-icon {
+    transform: rotate(45deg);
+    background: #3c8453;
+    border-color: #3c8453;
+    color: #ffffff;
 }
 
-.work-item:last-child {
-    margin-bottom: 0;
+
+/* =========================================
+   EXPANDABLE CONTENT
+   ========================================= */
+
+.expandable-details {
+    display: grid;
+    grid-template-rows: 0fr;
+
+    transition: grid-template-rows 0.35s ease;
 }
+
+
+/*
+The inner content needs to be hidden while
+the accordion is collapsed.
+*/
+
+.expandable-details > div,
+.expandable-details > p,
+.expandable-details > ul {
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0 26px;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.25s ease,
+        padding 0.35s ease;
+}
+
+
+/* Expanded state */
+
+.expandable-header[aria-expanded="true"] + .expandable-details {
+    grid-template-rows: 1fr;
+}
+
+
+/* Expanded content */
+
+.expandable-header[aria-expanded="true"] + .expandable-details > div,
+.expandable-header[aria-expanded="true"] + .expandable-details > p,
+.expandable-header[aria-expanded="true"] + .expandable-details > ul {
+    padding: 0 26px 24px 42px;
+    opacity: 1;
+}
+
+
+/* Paragraphs inside expandable content */
+
+.expandable-details p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #444444;
+}
+
+
+/* Lists inside expandable content */
+
+.expandable-details ul {
+    padding-left: 42px;
+}
+
+.expandable-details li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   PROJECTS
+   ========================================= */
+
+.project-item {
+    margin: 18px 0;
+}
+
+
+/* =========================================
+   EDUCATION
+   ========================================= */
+
+.education-item {
+    margin: 18px 0;
+}
+
+
+/* =========================================
+   CERTIFICATIONS
+   ========================================= */
+
+.certification-item {
+    margin: 14px 0;
+}
+
+
+/* =========================================
+   WORK EXPERIENCE
+   ========================================= */
+
+.work-item {
+    margin: 20px 0;
+    border: 1px solid #e1e4e8;
+    border-radius: 12px;
+    background: #ffffff;
+    overflow: hidden;
+
+    transition:
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.work-item:hover {
+    box-shadow: 0 8px 25px rgb(0 0 0 / 0.08);
+}
+
+
+/* Work header */
 
 .work-header {
     width: 100%;
-    padding: 20px 22px;
-    border: 0;
-    background: #ffffff;
+    border: none;
+    background: transparent;
+
+    padding: 24px 28px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    cursor: pointer;
+
     text-align: left;
+    cursor: pointer;
+
+    font-family: inherit;
+    color: #222222;
+
+    transition: background 0.2s ease;
 }
 
 .work-header:hover {
-    background: #f8fafc;
+    background: #f8faf9;
 }
 
-.work-header strong {
-    display: block;
-    color: #111827;
-    font-size: 1rem;
+
+/* Job title */
+
+.work-header h3 {
+    margin: 0 0 6px;
+    font-size: 2rem;
+    line-height: 1.3;
     font-weight: 600;
 }
 
-.work-header .item-subtitle {
-    display: block;
-    margin-top: 4px;
-    color: #64748b;
-    font-size: 0.9rem;
+
+/* Company and date */
+
+.work-header p {
+    margin: 3px 0;
 }
 
+.work-header .company {
+    font-weight: 500;
+    color: #3c8453;
+}
+
+.work-header .date {
+    color: #777777;
+    font-size: 1.35rem;
+}
+
+
+/* Work icon */
+
 .work-icon {
-    flex-shrink: 0;
-    width: 30px;
-    height: 30px;
-    border: 1px solid #cbd5e1;
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #475569;
-    font-size: 1.1rem;
+
+    flex-shrink: 0;
+
+    border: 1px solid #d3d4d6;
+    border-radius: 50%;
+
+    font-size: 2rem;
+    font-weight: 400;
     line-height: 1;
+
+    color: #3c8453;
+
     transition:
         transform 0.25s ease,
         background 0.25s ease,
-        color 0.25s ease;
+        color 0.25s ease,
+        border-color 0.25s ease;
 }
+
+
+/* Work icon expanded */
 
 .work-header[aria-expanded="true"] .work-icon {
     transform: rotate(45deg);
-    background: #2563eb;
-    border-color: #2563eb;
+    background: #3c8453;
+    border-color: #3c8453;
     color: #ffffff;
 }
 
+
+/* Work details */
+
 .work-details {
-    display: none;
-    padding: 0 22px 22px;
+    display: grid;
+    grid-template-rows: 0fr;
+
+    transition: grid-template-rows 0.35s ease;
 }
+
+.work-details > ul {
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0 28px;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.25s ease,
+        padding 0.35s ease;
+}
+
+
+/* Expanded work details */
 
 .work-header[aria-expanded="true"] + .work-details {
-    display: block;
+    grid-template-rows: 1fr;
 }
 
-.work-details ul {
-    margin: 0;
-    padding-left: 20px;
-    color: #475569;
+.work-header[aria-expanded="true"] + .work-details > ul {
+    padding: 0 28px 24px 48px;
+    opacity: 1;
 }
 
 .work-details li {
-    margin-bottom: 7px;
-}
-
-.work-details li:last-child {
-    margin-bottom: 0;
+    margin-bottom: 8px;
+    line-height: 1.6;
 }
 
 
-/* ==============================
-   Certifications
-   ============================== */
+/* =========================================
+   MOBILE
+   ========================================= */
 
-.certifications-list {
-    padding-top: 5px;
-}
+@media screen and (max-width: 600px) {
 
-.certifications-list ul {
-    margin: 0;
-    padding-left: 22px;
-    color: #475569;
-}
+    /* General accordion */
 
-.certifications-list li {
-    margin-bottom: 10px;
-    padding-left: 4px;
-}
-
-.certifications-list li:last-child {
-    margin-bottom: 0;
-}
-
-
-/* ==============================
-   Footer
-   ============================== */
-
-.resume-footer {
-    padding: 20px 0 60px;
-    text-align: center;
-    border-top: 1px solid #dbe2e8;
-}
-
-.resume-footer p {
-    margin: 6px 0;
-}
-
-.resume-footer a {
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.resume-footer a:hover {
-    text-decoration: underline;
-}
-
-
-/* ==============================
-   Mobile
-   ============================== */
-
-@media (max-width: 600px) {
-
-    .content {
-        width: min(100% - 24px, 900px);
+    .expandable-header {
+        padding: 18px;
+        gap: 15px;
     }
 
-    .resume-header {
-        padding: 55px 0 35px;
-    }
-
-    .resume-header h1 {
-        font-size: 2.1rem;
-    }
-
-    .resume-section {
-        margin-bottom: 40px;
-    }
-
-    .section-header {
-        padding: 18px 0;
-    }
-
-    .expandable-header,
-    .work-header {
-        padding: 17px;
-    }
-
-    .expandable-details,
-    .work-details {
-        padding: 0 17px 18px;
-    }
-
-    .section-icon,
-    .expandable-icon,
-    .work-icon {
-        width: 28px;
-        height: 28px;
+    .expandable-header h3 {
+        font-size: 1.5rem;
     }
 
     .item-subtitle {
-        font-size: 0.85rem;
+        font-size: 1.15rem;
     }
 
-    .certifications-list ul {
-        padding-left: 20px;
+    .expandable-icon {
+        width: 29px;
+        height: 29px;
+        font-size: 1.7rem;
     }
 
+    .expandable-header[aria-expanded="true"] + .expandable-details > div,
+    .expandable-header[aria-expanded="true"] + .expandable-details > p,
+    .expandable-header[aria-expanded="true"] + .expandable-details > ul {
+        padding: 0 18px 20px 32px;
+    }
+
+    .expandable-details p {
+        font-size: 1.15rem;
+        line-height: 1.6;
+    }
+
+
+    /* Work Experience */
+
+    .work-header {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .work-header h3 {
+        font-size: 1.7rem;
+    }
+
+    .work-header .date {
+        font-size: 1.25rem;
+    }
+
+    .work-header[aria-expanded="true"] + .work-details > ul {
+        padding: 0 20px 20px 38px;
+    }
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    background: #222;
+    color: #d3d4d6;
+}
+
+.socials {
+    list-style-type: none;
+    padding: 0;
+}
+
+.socials li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.socials img {
+    width: 32px;
+}
+
+.socials img:hover {
+    opacity: 0.5;
+}
+
+
+@media screen and (min-width: 860px) {
+
+    footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+}
+
+
+@media screen and (max-width: 859px) {
+
+    footer {
+        text-align: center;
+        padding: 10px;
+    }
 }
